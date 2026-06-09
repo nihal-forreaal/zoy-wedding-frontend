@@ -53,7 +53,13 @@ let sessionId;
 
 function initWebSocket() {
     if (!sessionId) {
-        sessionId = 'client-' + Math.floor(Math.random() * 10000);
+        const savedEmail = localStorage.getItem('zoy_client_email');
+        if (savedEmail) {
+            // Format email for Discord channel name (no @ or . allowed)
+            sessionId = 'client-' + savedEmail.replace(/[@.]/g, '-').toLowerCase();
+        } else {
+            sessionId = 'guest-' + Math.floor(Math.random() * 10000);
+        }
     }
     // Connect to the Render backend
     ws = new WebSocket(`wss://zoy-wedding-portfolio.onrender.com/ws/${sessionId}`);
