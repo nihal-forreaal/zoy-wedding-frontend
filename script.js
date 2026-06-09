@@ -61,8 +61,8 @@ function initWebSocket() {
             sessionId = 'guest-' + Math.floor(Math.random() * 10000);
         }
     }
-    // Connect to the Railway backend
-    ws = new WebSocket(`wss://zoy-wedding-portfolio-production.up.railway.app/ws/${sessionId}`);
+    // Connect to the Render backend
+    ws = new WebSocket(`wss://zoy-wedding-portfolio.onrender.com/ws/${sessionId}`);
     
     ws.onmessage = function(event) {
         const botMsg = document.createElement('div');
