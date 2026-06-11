@@ -75,12 +75,8 @@
             const msg = document.getElementById('login-msg');
             msg.style.color = 'green';
             msg.textContent = `Welcome back, ${email}! Loading dashboard...`;
-            
-            // Save the user's email so the chat widget knows who is chatting!
-            localStorage.setItem('zoy_client_email', email);
-            
             setTimeout(() => {
-                window.location.href = 'index.html'; // Redirect to home or dashboard after mock login
+                window.location.href = 'index.html';
             }, 1500);
         });
     </script>
